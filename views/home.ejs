@@ -1,0 +1,143 @@
+<html>
+    <!-- Phần Header của Website -->
+    <head>        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="mobile-web-app-capable" content="yes">
+        <link rel="shortcut icon" href="images/icon.png">
+        <link rel="apple-touch-icon" href="images/icon.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- ////////////// GỌI CÁC CSS //////////////  -->
+        <link rel="stylesheet" href= "css/screen.css">
+        <!-- ////////////// CHƯƠNG TRÌNH HỆ THỐNG //////////////  -->
+        <title>Scada trạm bơm tăng áp</title>
+        <script src = "socket.io/socket.io.js"></script>        
+        <script src = "js/jquery-3.6.0.min.js"></script>
+        <!-- ////////////// THƯ VIỆN VẼ ĐỒ THỊ //////////////  -->
+        <script src = "chartjs/chart.js"></script>
+        <script src = "chartjs/moment.js"></script>
+        <script src = "chartjs/chartjs-adapter-moment.js"></script>
+        <script>
+            var host = location.host;//'localhost:8000'; //
+            var socket = io(host) // IP tĩnh (hoặc IP động, hoặc localhost)
+            console.log(host)
+        </script>
+        <script src = "js/myscript.js"></script>
+        <script src = "js/report.js"></script>
+        <script src = "js/chartjs-online.js"></script>
+        <script src = "js/chartjs-history.js"></script>
+    </head>
+    <!-- Phần Thân của Website -->
+    <body>
+        <!--<img src="images/mainscreen.png">-->
+        <div id="header">
+            <label id="left_header">WEBSCADA</label>
+            <label id="center_header">GIÁM SÁT - ĐIỀU KHIỂN TRẠM BƠM TĂNG ÁP</label>
+        </div>
+        <div id="sidebar">
+            <!--Nút chọn màn hình chinh-->
+            <button id="btn_mainscreen" onclick="btnScreen_clicked(this.id)">MÀN HÌNH CHÍNH</button>
+            <button id="btn_chartscreen" onclick="btnScreen_clicked(this.id)">ĐỒ THỊ DỮ LIỆU</button>
+            <button id="btn_reportscreen" onclick="btnScreen_clicked(this.id)">LỊCH SỬ DỮ LIỆU</button>
+        </div>
+        <div id="mainscreen">
+            <div id="pumpstation">
+                <img src="images/pumpstation1.png" style="max-width: 100%;max-height: 100%;">
+                <!--ảnh nền trạm bơm-->
+                <img id="pumpicon" src="images/Symbol/pump_.png" onclick="btn_clicked(this.id)">
+                <span id="ps-circle" onclick="btn_clicked(this.id)">PS</span>
+                <!--hiển thị các thông số-->
+                <span id="frequency" class="pv">0.0 Hz</span>
+                <span id="current" class="pv">0.0 A</span>
+                <span id="power" class="pv">0.0 kW</span>
+                <span id="pressure_pv" class="pv">0 bar</span>
+                
+            </div>
+            <div id="chart_online">
+                <canvas id="ctx1" height="360px" width="1102px"></canvas>
+            </div>
+            <div id="control_board">
+                <!--các nút điều khiển-->
+                <button id="btn_auto" class="btn_control" onclick="btn_clicked(this.id)">TỰ ĐỘNG</button>
+                <button id="btn_manual" class="btn_control" onclick="btn_clicked(this.id)">BẰNG TAY</button>
+                <button id="btn_start" class="btn_control" onclick="btn_clicked(this.id)">CHẠY</button>
+                <button id="btn_stop" class="btn_control" onclick="btn_clicked(this.id)">DỪNG</button>
+                <!--nhập giá trị áp suât-->
+                <input type="number" id="pressure_sp_new" class="sp" value="0" step="0.1" min="1.0" max="5.0">
+                <input type="number" id="pressure_sp" class="sp" value="0" disabled>
+                <button id="btn_setPT" onclick="btn_clicked(this.id)">SET</button>
+                <span id="alarm1-circle"></span>
+                <span id="alarm2-circle"></span>
+                <button id="btn_reset" onclick="btn_clicked(this.id)">XÓA LỖI</button>
+                <!--các nhãn tên-->
+                <label class="lable1">ĐIỀU KHIỂN BƠM</label>
+                <div class="line" style="top: 60px;"></div>
+                <div class="line" style="top: 136px;"></div>
+                <div class="line" style="top: 205px;"></div>
+                <label class="lable2">Cài đặt áp suất:</label>
+                <label class="lable3">Giá trị đặt hiện tại (bar):</label>
+                <label class="lable4">CẢNH BÁO LỖI</label>
+                <div class="line" style="top: 448px;"></div>
+                <div class="line" style="top: 615px;"></div>
+                <label class="lable5">LỖI BƠM:</label>
+                <label class="lable6">ÁP SUẤT THẤP:</label>
+            </div>
+            <div id="alarm_banner">
+                <label id="alarm_lable"></label>
+            </div>
+        </div>
+        <div id="chartscreen" style="display: none;">
+            <div class="report_header">
+                <label class="report_header">ĐỒ THỊ DỮ LIỆU</label>                
+            </div>
+            <hr/>
+            <div class="options-select">
+                <label for="chart_from">Thời gian bắt đầu</label>
+                <input class="input-datetime" id="chart_from" type="datetime-local" name="from" value="">
+                <label for="chart_to">Thời gian kết thúc</label>
+                <input class="input-datetime" id="chart_to" type="datetime-local" name="from" value="">
+                <label for="select_param">Giá trị đo</label>
+                <select id="select_param">
+                    <option value="apsuat_dat,apsuat_chay">Áp suất</option>
+                    <option value="tanso">Tần số</option>
+                    <option value="dongdien">Dòng điện</option>
+                    <option value="congsuat">Công suất</option>
+                </select>
+                <button id="btn_chart_history" class="btn_report" onclick="btn_report_clicked(this.id)">Cập nhật</button>
+            </div>
+            <div id="chart_history">
+                <canvas id="ctx2" height="710px" width="1419px"></canvas>
+            </div>
+        </div>
+        <div id="reportscreen" style="display: none;">
+            <div class="report_header">
+                <label >LỊCH SỬ DỮ LIỆU</label>
+            </div>
+            <hr/>
+            <div class="options-select">
+                <label for="report_from">Thời gian bắt đầu</label>
+                <input class="input-datetime" id="report_from" type="datetime-local" name="from" value="">
+                <label for="report_to">Thời gian kết thúc</label>
+                <input class="input-datetime" id="report_to" type="datetime-local" name="from" value="">
+                <button id="btn_report_history" class="btn_report" onclick="btn_report_clicked(this.id)">Cập nhật</button>
+            </div>
+            <div id="div_table_01">
+                <table id="table_01">
+                    <thead>
+                        <tr>
+                            <th>Thời gian</th>
+                            <th>Áp suất đặt (bar)</th>
+                            <th>Áp suất thực (bar)</th>
+                            <th>Tần số (Hz)</th>
+                            <th>Dòng điện (A)</th>
+                            <th>Công suất (kW)</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        
+    </body>
+</html>

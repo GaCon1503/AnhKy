@@ -1,0 +1,463 @@
+body {
+    color: black;
+    background: #F7F7F7;
+    font-family: "Helvetica Neue",Roboto,Arial,"Droid Sans",sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.471
+}
+#header{
+    position: absolute;
+    left: 8px;
+    top: 5px;
+    width: 1703px;
+    height: 60px;
+    background-color: white;
+}
+#left_header{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 266px;
+    height: 60px;
+    color: blue;
+    text-align: center;
+    align-content: center;
+    font-size: 32px;
+    font-weight: 400;
+}
+#center_header{
+    position: absolute;
+    left: 266px;
+    top: 0px;
+    width: 1430px;
+    height: 60px;
+    color: green;
+    text-align: center;
+    align-content: center;
+    font-size: 34px;
+    font-weight: 600;
+}
+#sidebar{
+    position: absolute;
+    left: 8px;
+    top: 82px;
+    width: 266px;
+    height: 785px;
+    background-color: white;
+}
+#btn_mainscreen{
+    position: absolute;
+    left: 15px;
+    top: 30px;
+    width: 232px;
+    height: 50px;
+    background-color: chartreuse;
+    font-size: large;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#btn_chartscreen{
+    position: absolute;
+    left: 15px;
+    top: 95px;
+    width: 232px;
+    height: 50px;
+    background-color: gray;
+    font-size: large;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#btn_reportscreen{
+    position: absolute;
+    left: 15px;
+    top: 160px;
+    width: 232px;
+    height: 50px;
+    background-color: gray;
+    font-size: large;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#mainscreen{
+    position: absolute;
+    left: 292px;
+    top: 82px;
+    width: 1420px;
+    height: 785px;
+    background-color: transparent;
+}
+#chartscreen{
+    position: absolute;
+    left: 292px;
+    top: 82px;
+    width: 1420px;
+    height: 785px;
+    background-color: white;
+}
+#reportscreen{
+    position: absolute;
+    left: 292px;
+    top: 82px;
+    width: 1420px;
+    height: 785px;
+    background-color: white;
+}
+#chart_online{
+    position: absolute;
+    left: 0px;
+    top: 354px;
+    width: 1102px;
+    height: 360px;
+    background: white;
+}
+#control_board{
+    position: absolute;
+    left: 1112px;
+    top: 0px;
+    width: 308px;
+    height: 714px;
+    background: white;
+}
+#pumpstation{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 1102px;
+    height: 336px;
+    background-color: white;
+}
+#pumpicon{
+    position: absolute;
+    left: 278px;
+    top: 68px;
+    width: 84px;
+    cursor: pointer;
+}
+#ps-circle {
+    position: absolute;
+    left: 103px;
+    top: 53px;
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    background-color: red;
+    text-align: center;
+    align-content: center;    
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    cursor: pointer;
+}
+.pv{    
+    height: 25px;
+    width: 90px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    align-content: center;
+}
+#frequency{
+    position: absolute;
+    left: 280px;
+    top: 43px;
+}
+#current{
+    position: absolute;
+    left: 364px;
+    top: 114px;
+}
+#power{
+    position: absolute;
+    left: 364px;
+    top: 144px;
+}
+#pressure_pv{
+    position: absolute;
+    left: 768px;
+    top: 44px;
+}
+.btn_control{
+    width: 124px;
+    height: 36px;
+    background-color: #C3C3C3;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    align-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#btn_auto{
+    position: absolute;
+    left: 28px;
+    top: 84px;
+}
+#btn_manual{
+    position: absolute;
+    left: 166px;
+    top: 84px;
+}
+#btn_start{
+    position: absolute;
+    left: 28px;
+    top: 156px;
+}
+#btn_stop{
+    position: absolute;
+    left: 166px;
+    top: 156px;
+}
+.sp{
+    height: 35px;
+    width: 90px;
+    color: black;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    align-content: center;
+    background: #d6f5f5;
+}
+#pressure_sp_new{
+    position: absolute;
+    left: 150px;
+    top: 220px;
+}
+#pressure_sp{
+    position: absolute;
+    left: 150px;
+    top: 270px;
+}
+#btn_setPT{
+    position: absolute;
+    left: 245px;
+    top: 220px;
+    width: 50px;
+    height: 34px;
+    background-color: #C3C3C3;
+    color: black;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    align-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#btn_reset{
+    position: absolute;
+    left: 24px;
+    top: 628px;
+    width: 270px;
+    height: 32px;
+    background-color: #C3C3C3;
+    color: orangered;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    align-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#alarm1-circle {
+    position: absolute;
+    left: 205px;
+    top: 468px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: orangered;    
+}
+#alarm2-circle {
+    position: absolute;
+    left: 205px;
+    top: 518px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: gray;    
+}
+.lable1{
+    position: absolute;
+    left: 0px;
+    top: 20px;
+    width: 100%;
+    color: black;
+    text-align: center;
+    align-content: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+.lable2{
+    position: absolute;
+    left: 12px;
+    top: 224px;
+    width: 135px;
+    color: black;
+    text-align: left;
+    align-content: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+.lable3{
+    position: absolute;
+    left: 12px;
+    top: 264px;
+    width: 135px;
+    color: black;
+    text-align: left;
+    align-content: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+.lable4{
+    position: absolute;
+    left: 0px;
+    top: 410px;
+    width: 100%;
+    color: black;
+    text-align: center;
+    align-content: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+.lable5{
+    position: absolute;
+    left: 25px;
+    top: 475px;
+    width: 180px;
+    color: black;
+    text-align: left;
+    align-content: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+.lable6{
+    position: absolute;
+    left: 25px;
+    top: 528px;
+    width: 180px;
+    color: black;
+    text-align: left;
+    align-content: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+.line{
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid gray;
+    position: absolute;
+}
+#alarm_banner{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 1420px;
+    height: 56px;
+    text-align: center;
+    align-content: center;
+    background-color: #73879C;
+}
+#alarm_lable{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: orange;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    background-color: #73879C;
+}
+.report_header{
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 60px;
+    color: blue;
+    text-align: center;
+    align-content: center;
+    font-size: 26px;
+    font-weight: 600;
+}
+#chart_history{
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 710px;
+    background: white;
+}
+#report_table{
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 710px;
+    background: white;
+    overflow: hidden;
+    
+}
+.btn_report{
+    width: 124px;
+    height: 36px;
+    background-color: #26B99A;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    align-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.options-select {
+    position: relative;
+    font-size: 22px;
+    align-content: top;
+    height: 50px;
+}
+.input-datetime {
+    position: relative;
+    height: 32px;
+    padding: 6px 12px;
+    font-size: 16px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#select_param{
+    position: relative;
+    height: 32px;
+    padding: 6px 12px;
+    font-size: 16px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#div_table_01 {
+	position: relative;
+    width: 100%; height: 650px;
+    overflow-y: scroll;
+}
+#table_01 {
+    position: relative;
+    width: 100%;
+    overflow: auto;
+}
+#table_01 tr { cursor: pointer;}
+#table_01 tr:hover{ background-color: #ddd;}
+#table_01 thead th{ position: sticky; top: 0;}
+/**/
+#table_01 {border-collapse: collapse; width: 100%}
+#table_01 th, td { padding: 8px 16px;}
+#table_01 th { background: #eee;}

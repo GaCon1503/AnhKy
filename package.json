@@ -1,0 +1,23 @@
+{
+  "name": "webscada",
+  "version": "1.0.0",
+  "description": "webserver scada projcet",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "jquery": "^3.7.1",
+    "kepserverex-js": "^1.0.6",
+    "lodash": "^4.17.21",
+    "mqtt": "^5.10.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.11.3",
+    "nodes7": "^0.3.18",
+    "socket.io": "^4.8.1"
+  }
+}
